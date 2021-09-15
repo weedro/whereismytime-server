@@ -1,0 +1,7 @@
+server.port: 7432
+spring:
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5432/trackedtime_database
+    username: root
+    password: root
+  jpa.hibernate.ddl-auto: validate
