@@ -4,7 +4,7 @@
 | ------ | ---- | -------- |
 | GET    | /api/v1/track/{userId}?type=summary | get all time updates of user
 | GET    | /api/v1/track/{userId}?type=summary | get summary of all time updates of user
-| POST   | /api/v1/track | save new time update of user
+| POST   | /api/v1/track | save new time update of user and return count of saved updates
 
 - POST
 ```json
