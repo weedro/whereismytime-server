@@ -7,7 +7,7 @@ import org.mapstruct.Mapper;
 @Mapper(componentModel = "spring")
 public interface WastedTimeMapper {
 
-    WastedTime wastedTimeDtoToWastedTime(WastedTimeDto wastedTimeDto);
+  WastedTime wastedTimeDtoToWastedTime(WastedTimeDto wastedTimeDto);
 
-    WastedTimeDto wastedTimeToWastedTimeDto(WastedTime wastedTime);
+  WastedTimeDto wastedTimeToWastedTimeDto(WastedTime wastedTime);
 }

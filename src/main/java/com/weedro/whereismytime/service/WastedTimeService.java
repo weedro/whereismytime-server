@@ -14,17 +14,20 @@ import reactor.core.publisher.Mono;
 public record WastedTimeService(WastedTimeRepository wastedTimeRepository,
                                 WastedTimeMapper wastedTimeMapper) {
 
-    public Flux<WastedTimeDto> findUserWastedTime(String userId) {
-        Flux<WastedTime> wastedTimeFlux =
-            wastedTimeRepository.findAllByUserId(userId);
+  public Flux<WastedTimeDto> findUserWastedTime(String userId) {
+    Flux<WastedTime> wastedTimeFlux = wastedTimeRepository.findAllByUserId(userId);
 
-        return wastedTimeFlux.map(wastedTimeMapper::wastedTimeToWastedTimeDto);
-    }
+    return wastedTimeFlux.map(wastedTimeMapper::wastedTimeToWastedTimeDto);
+  }
 
-    public Mono<Long> saveTimeTrackUpdate(Flux<WastedTimeDto> wastedTimeDtoFlux) {
-        Flux<WastedTime> wastedTimeFlux =
-            wastedTimeDtoFlux.map(wastedTimeMapper::wastedTimeDtoToWastedTime);
+  public Flux<WastedTimeDto> findUserWastedTimeSummary(String userId) {
+    return wastedTimeRepository.findAllByUserIdSummary(userId);
+  }
 
-        return wastedTimeRepository.saveAll(wastedTimeFlux).count();
-    }
+  public Mono<Long> saveTimeTrackUpdate(Flux<WastedTimeDto> wastedTimeDtoFlux) {
+    Flux<WastedTime> wastedTimeFlux =
+        wastedTimeDtoFlux.map(wastedTimeMapper::wastedTimeDtoToWastedTime);
+
+    return wastedTimeRepository.saveAll(wastedTimeFlux).count();
+  }
 }
