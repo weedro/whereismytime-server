@@ -22,7 +22,7 @@ create database authentication_database with owner = root
 create table authenticated_user
 (
     id       bigserial,
-    token    varchar(128)       not null,
+    token    varchar(32)       not null,
     username varchar(30) unique not null,
     password varchar(128)       not null,
     constraint pk_authenticated_user_id primary key (id)
