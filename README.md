@@ -1,5 +1,7 @@
 # where is my time? :c
 
+## global services url: `localhost:7430`
+
 ## authentication service
 ### url: /aus
 | method | path | describe |

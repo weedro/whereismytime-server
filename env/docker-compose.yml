@@ -11,3 +11,9 @@ services:
       - POSTGRES_USER=root
       - POSTGRES_PASSWORD=root
       - POSTGRES_DB=root
+    networks:
+      - wimtnet
+
+networks:
+  wimtnet:
+    name: wimt_network

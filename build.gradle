@@ -11,3 +11,10 @@ tasks.register('clean') {
     dependsOn(gradle.includedBuild('app').task(':authentication-service:clean'))
     dependsOn(gradle.includedBuild('app').task(':whereismytime-service:clean'))
 }
+
+tasks.register('build') {
+    group = 'build'
+    description = 'Run all build'
+    dependsOn(gradle.includedBuild('app').task(':authentication-service:build'))
+    dependsOn(gradle.includedBuild('app').task(':whereismytime-service:build'))
+}
