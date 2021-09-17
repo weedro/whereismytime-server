@@ -1,1 +1,3 @@
-rootProject.name = 'whereismytime'
+rootProject.name = 'whereismytime-server'
+
+includeBuild('app')

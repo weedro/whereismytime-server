@@ -1,0 +1,6 @@
+server.port: 7433
+spring:
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5432/authentication_database
+    username: root
+    password: root
