@@ -1,5 +1,8 @@
 # where is my time? :c
 
+## run with:
+`.\gradlew clean build && docker-compose -f env\docker-compose.yml up --build -d && docker-compose -f app-dock\docker-compose.yml up --build -d`
+
 ## global services url: `localhost:7430`
 
 ## authentication service
