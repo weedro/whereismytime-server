@@ -34,7 +34,7 @@ public record AuthenticationService(AuthenticatedUserRepository authenticatedUse
                 String.format("Wrong user credentials for username: [%s]", username))));
       }
 
-      String token = passwordEncryptor(username);
+      String token = generateToken(username);
 
       AuthenticatedUser authenticatedUser = authenticatedUserMapper.userCredentialsToAuthenticatedUser(
           token, username, encryptedPassword);
