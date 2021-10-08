@@ -3,6 +3,9 @@
 ## run with:
 `.\gradlew clean build && docker-compose -f env\docker-compose.yml up --build -d && docker-compose -f app-dock\docker-compose.yml up --build -d`
 
+## stop with:
+`docker-compose -f app-dock\docker-compose.yml down -v --remove-orphans && docker-compose -f env\docker-compose.yml down -v --remove-orphans`
+
 ## global services url: `localhost:7430`
 
 ## authentication service
