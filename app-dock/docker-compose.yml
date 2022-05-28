@@ -11,7 +11,7 @@ services:
     ports:
       - "7432:7432"
     environment:
-      SPRING_R2DBC_URL: jdbc:postgresql://postgres:5432/tracked_time_database
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/tracked_time_database
     networks:
       - wimtnet
 
