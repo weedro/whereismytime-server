@@ -1,6 +1,9 @@
-FROM adoptopenjdk/openjdk16:x86_64-alpine-jdk16u-2021-09-16-01-18-beta-nightly-slim
+FROM gradle:jdk16 as build
+COPY /app /app
 WORKDIR /app
+RUN gradle clean build
+
+FROM adoptopenjdk/openjdk16:jre
 ARG SERVICE
-RUN #addgroup --system javauser && adduser -S -s /bin/false -G javauser javauser
-COPY ../app/${SERVICE}/build/libs/${SERVICE}-*.jar /app/app.jar
-CMD ["java", "-jar", "/app/app.jar"]
+COPY --from=build /app/${SERVICE}/build/libs/${SERVICE}-*.jar /app/app.jar
+CMD [ "java", "-jar", "/app/app.jar" ]

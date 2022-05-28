@@ -9,13 +9,13 @@ services:
         SERVICE: whereismytime-service
     container_name: wimt-service
     ports:
-      - 7432:7432
+      - "7432:7432"
     environment:
       SPRING_R2DBC_URL: r2dbc:postgresql://postgres:5432/trackedtime_database
     networks:
       - wimtnet
 
-  aus:
+  auth:
     build:
       context: ..
       dockerfile: app-dock/Dockerfile
@@ -23,7 +23,7 @@ services:
         SERVICE: authentication-service
     container_name: aus-service
     ports:
-      - 7433:7433
+      - "7433:7433"
     environment:
       SPRING_R2DBC_URL: r2dbc:postgresql://postgres:5432/authentication_database
     networks:
@@ -35,7 +35,7 @@ services:
     volumes:
       - "./nginx/reverse_proxy.conf:/etc/nginx/conf.d/default.conf"
     ports:
-      - 7430:80
+      - "7430:7430"
     depends_on:
       - wimt
       - auth
