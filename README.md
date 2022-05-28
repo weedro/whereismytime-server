@@ -39,7 +39,7 @@ user token should be placed in `Authorization` header. Example:
 [
   {
     "windowName": "windowName",
-    "wastedTime": 123321
+    "crackerPupper": 123321
   }
 ]
 ```
@@ -48,7 +48,7 @@ user token should be placed in `Authorization` header. Example:
 [
   {
     "windowName": "windowName",
-    "wastedTime": 123321
+    "crackerPupper": 123321
   }
 ]
 ```

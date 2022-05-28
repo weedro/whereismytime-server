@@ -1,7 +1,9 @@
 package com.weedro.whereismytime.domain.dto;
 
-import java.time.LocalDateTime;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Positive;
 
-public record WastedTimePostDto(String windowName, LocalDateTime logTime) {
+public record WastedTimePostDto(@NotBlank String windowName, @NotBlank String processName,
+                                @Positive Long wastedTime) {
 
 }

@@ -3,14 +3,15 @@ Accept: application/json
 Authorization: Bearer 1e69205c
 
 ###
-POST http://45.13.59.103:7430/wimt/api/v1/track
+POST http://localhost:7432/wimt/api/v1/track
 Content-Type: application/json
 Authorization: Bearer 1e69205c
 
 [
   {
     "windowName": "test",
-    "logTime": "2022-05-28T15:36:04.468856218"
+    "processName": "test",
+    "wastedTime": 123
   }
 ]
 

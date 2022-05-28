@@ -1,6 +1,5 @@
 package com.weedro.whereismytime.domain.entity;
 
-import java.time.LocalDateTime;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,11 +9,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Entity
 @Getter
 @Setter
 @NoArgsConstructor
-public class WastedTime {
+@Entity(name = "wasted_time")
+public class CrackerPupper {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,6 +23,10 @@ public class WastedTime {
     @Column(nullable = false)
     private String windowName;
     @Column(nullable = false)
-    private LocalDateTime logTime;
+    private String processName;
+    @Column(nullable = false)
+    private Long wastedTime;
 
 }
+
+

@@ -5,6 +5,8 @@ import com.weedro.whereismytime.domain.dto.WastedTimePostDto;
 import com.weedro.whereismytime.domain.dto.WastedTimeSummaryDto;
 import com.weedro.whereismytime.service.WastedTimeService;
 import java.util.List;
+import javax.validation.Valid;
+import javax.validation.constraints.NotEmpty;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -29,7 +31,7 @@ public record WastedTimeController(WastedTimeService wastedTimeService) {
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public Long trackTime(@RequestHeader(HttpHeaders.AUTHORIZATION) String authorization,
-        @RequestBody List<WastedTimePostDto> wastedTimePostDtoFlux) {
+        @RequestBody @NotEmpty List<@Valid WastedTimePostDto> wastedTimePostDtoFlux) {
         return wastedTimeService.saveTimeTrackUpdate(authorization, wastedTimePostDtoFlux);
     }
 }

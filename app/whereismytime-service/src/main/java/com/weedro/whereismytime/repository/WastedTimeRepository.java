@@ -1,11 +1,11 @@
 package com.weedro.whereismytime.repository;
 
-import com.weedro.whereismytime.domain.entity.WastedTime;
+import com.weedro.whereismytime.domain.entity.CrackerPupper;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface WastedTimeRepository extends JpaRepository<WastedTime, Long> {
+public interface WastedTimeRepository extends JpaRepository<CrackerPupper, Long> {
 
-    List<WastedTime> findAllByUserToken(String userToken);
+    List<CrackerPupper> findAllByUserToken(String userToken);
 
 }
