@@ -15,7 +15,7 @@ services:
     networks:
       - wimtnet
 
-  auth:
+  aus:
     build:
       context: ..
       dockerfile: app-dock/Dockerfile
@@ -38,7 +38,7 @@ services:
       - "7430:7430"
     depends_on:
       - wimt
-      - auth
+      - aus
     networks:
       - wimtnet
 
