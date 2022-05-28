@@ -5,5 +5,5 @@ RUN gradle clean build
 
 FROM adoptopenjdk/openjdk16:jre
 ARG SERVICE
-COPY --from=build /app/${SERVICE}/build/libs/${SERVICE}-*.jar /app/app.jar
+COPY --from=build /app/${SERVICE}/build/libs/${SERVICE}-*SNAPSHOT.jar /app/app.jar
 CMD [ "java", "-jar", "/app/app.jar" ]
