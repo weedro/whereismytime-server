@@ -1,6 +1,6 @@
 server.port: 7432
 spring:
-  r2dbc:
-    url: r2dbc:postgresql://localhost:5432/tracked_time_database
+  datasource:
+    url: jdbc:postgresql://localhost:5432/tracked_time_database
     username: root
     password: root

@@ -1,11 +1,11 @@
 package com.weedro.whereismytime.repository;
 
 import com.weedro.whereismytime.domain.entity.WastedTime;
-import org.springframework.data.r2dbc.repository.R2dbcRepository;
-import reactor.core.publisher.Flux;
+import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface WastedTimeRepository extends R2dbcRepository<WastedTime, Long> {
+public interface WastedTimeRepository extends JpaRepository<WastedTime, Long> {
 
-    Flux<WastedTime> findAllByUserToken(String userToken);
+    List<WastedTime> findAllByUserToken(String userToken);
 
 }
