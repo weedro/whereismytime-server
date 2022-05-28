@@ -15,8 +15,8 @@ import reactor.core.publisher.Mono;
 @RequestMapping(Api.BASE_URL + "/auth")
 public record AuthenticationController(AuthenticationService authenticationService) {
 
-  @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-  public Mono<AuthResponseDto> getToken(@RequestBody AuthRequestDto authRequestDto) {
-    return authenticationService.getToken(authRequestDto);
-  }
+    @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public Mono<AuthResponseDto> getToken(@RequestBody AuthRequestDto authRequestDto) {
+        return authenticationService.getToken(authRequestDto);
+    }
 }

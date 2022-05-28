@@ -1,0 +1,26 @@
+GET http://localhost:7432/wimt/api/v1/track
+Accept: application/json
+Authorization: Bearer 1e69205c
+
+###
+POST http://localhost:7432/wimt/api/v1/track
+Content-Type: application/json
+Authorization: Bearer 1e69205c
+
+[
+  {
+    "windowName": "test",
+    "logTime": "2022-05-28T09:06:04.468856218"
+  }
+]
+
+###
+POST http://localhost:7433/aus/api/v1/auth
+Content-Type: application/json
+
+{
+  "username": "testee",
+  "password": "testee"
+}
+
+###

@@ -3,7 +3,4 @@ WORKDIR /app
 ARG SERVICE
 RUN #addgroup --system javauser && adduser -S -s /bin/false -G javauser javauser
 COPY ../app/${SERVICE}/build/libs/${SERVICE}-*.jar /app/app.jar
-#RUN chown -R javauser:javauser /app && \
-#    chmod 500 /app
-#USER javauser
 CMD ["java", "-jar", "/app/app.jar"]

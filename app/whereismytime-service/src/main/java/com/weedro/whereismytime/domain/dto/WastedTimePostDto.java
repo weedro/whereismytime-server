@@ -1,5 +1,7 @@
 package com.weedro.whereismytime.domain.dto;
 
-public record WastedTimePostDto(String windowName, long wastedTime) {
+import java.time.LocalDateTime;
+
+public record WastedTimePostDto(String windowName, LocalDateTime logTime) {
 
 }

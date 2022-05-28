@@ -6,7 +6,7 @@ import reactor.core.publisher.Mono;
 
 public interface AuthenticatedUserRepository extends R2dbcRepository<AuthenticatedUser, Long> {
 
-  Mono<Boolean> existsByUsername(String username);
+    Mono<Boolean> existsByUsername(String username);
 
-  Mono<AuthenticatedUser> findByUsernameAndPassword(String username, String password);
+    Mono<AuthenticatedUser> findByUsernameAndPassword(String username, String password);
 }

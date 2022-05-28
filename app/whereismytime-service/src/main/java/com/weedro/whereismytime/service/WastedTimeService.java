@@ -15,31 +15,26 @@ import reactor.core.publisher.Mono;
 public record WastedTimeService(WastedTimeRepository wastedTimeRepository,
                                 WastedTimeMapper wastedTimeMapper) {
 
-  public Flux<WastedTimeDto> findUserWastedTime(String authorization) {
-    String userToken = resolveToken(authorization);
-    Flux<WastedTime> wastedTimeFlux = wastedTimeRepository.findAllByUserToken(userToken);
+    public Flux<WastedTimeDto> findUserWastedTime(String authorization) {
+        String userToken = resolveToken(authorization);
+        Flux<WastedTime> wastedTimeFlux = wastedTimeRepository.findAllByUserToken(userToken);
 
-    return wastedTimeFlux.map(wastedTimeMapper::wastedTimeToWastedTimeDto);
-  }
+        return wastedTimeFlux.map(wastedTimeMapper::wastedTimeToWastedTimeDto);
+    }
 
-  public Flux<WastedTimeDto> findUserWastedTimeSummary(String authorization) {
-    String userToken = resolveToken(authorization);
-    return wastedTimeRepository.findAllByUserTokenSummary(userToken);
-  }
+    public Mono<Long> saveTimeTrackUpdate(String authorization,
+        Flux<WastedTimePostDto> wastedTimePostDtoFlux) {
+        String userToken = resolveToken(authorization);
 
-  public Mono<Long> saveTimeTrackUpdate(String authorization,
-      Flux<WastedTimePostDto> wastedTimePostDtoFlux) {
-    String userToken = resolveToken(authorization);
+        Flux<WastedTime> wastedTimeFlux =
+            wastedTimePostDtoFlux.map(
+                wastedTimePostDto -> wastedTimeMapper.wastedTimePostDtoToWastedTime(userToken,
+                    wastedTimePostDto));
 
-    Flux<WastedTime> wastedTimeFlux =
-        wastedTimePostDtoFlux.map(
-            wastedTimePostDto -> wastedTimeMapper.wastedTimePostDtoToWastedTime(userToken,
-                wastedTimePostDto));
+        return wastedTimeRepository.saveAll(wastedTimeFlux).count();
+    }
 
-    return wastedTimeRepository.saveAll(wastedTimeFlux).count();
-  }
-
-  private String resolveToken(String authorization) {
-    return authorization.replace("Bearer ", "");
-  }
+    private String resolveToken(String authorization) {
+        return authorization.replace("Bearer ", "");
+    }
 }

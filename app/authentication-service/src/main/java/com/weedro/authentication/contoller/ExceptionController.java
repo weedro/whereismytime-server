@@ -10,9 +10,9 @@ import reactor.core.publisher.Mono;
 @RestControllerAdvice
 public class ExceptionController {
 
-  @ExceptionHandler(WrongUserCredentialsException.class)
-  @ResponseStatus(HttpStatus.UNAUTHORIZED)
-  public Mono<String> serverExceptionHandler(Exception ex) {
-    return Mono.just(ex.getMessage());
-  }
+    @ExceptionHandler(WrongUserCredentialsException.class)
+    @ResponseStatus(HttpStatus.UNAUTHORIZED)
+    public Mono<String> serverExceptionHandler(Exception ex) {
+        return Mono.just(ex.getMessage());
+    }
 }
