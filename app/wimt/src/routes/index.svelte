@@ -53,5 +53,5 @@
       <button type="submit">Poehali</button>
     </form>
   </div>
-  <Chart bind:this={chartRef} {data} type="pie"/>
+  <Chart bind:this={chartRef} {data} type="pie" maxLegendPoints="20" maxSlices="20"/>
 </div>
