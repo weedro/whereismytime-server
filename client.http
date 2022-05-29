@@ -11,6 +11,7 @@ Authorization: Bearer 1e69205c
   {
     "windowName": "test",
     "processName": "test",
+    "startTime": "2019-01-21T05:47:08.644",
     "wastedTime": 123
   }
 ]

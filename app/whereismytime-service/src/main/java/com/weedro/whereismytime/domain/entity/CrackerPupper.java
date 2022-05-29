@@ -1,5 +1,6 @@
 package com.weedro.whereismytime.domain.entity;
 
+import java.time.LocalDateTime;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -24,6 +25,8 @@ public class CrackerPupper {
     private String windowName;
     @Column(nullable = false)
     private String processName;
+    @Column(nullable = false)
+    private LocalDateTime startTime;
     @Column(nullable = false)
     private Long wastedTime;
 
